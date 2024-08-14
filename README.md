@@ -8,6 +8,14 @@
 - 各モジュールの画像素材は`src/assets`にあります。
 - モジュール1のテンプレートは`src/template`にあります。
 
+## 必須環境
+
+- Docker (Docker Desktop, Docker Engine)
+- Hyper-V (Windowsのみ)
+- WSL2 (Windowsのみ)
+
+※Hyper-VとWSL2はどちらか一方がセットアップされている必要があります。
+
 ## セットアップ
 
 1. リポジトリをクローンする
