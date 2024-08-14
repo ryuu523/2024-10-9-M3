@@ -8,6 +8,26 @@
 - 各モジュールの画像素材は`src/assets`にあります。
 - モジュール1のテンプレートは`src/template`にあります。
 
+## セットアップ
+
+1. リポジトリをクローンする
+
+    ```sh
+    git clone https://github.com/saitogo555/jyakunen2024-webdesign-dev
+    ```
+
+2. ディレクトリを移動する
+
+    ```sh
+    cd ./jyakunen2024-webdesign-dev
+    ```
+
+3. dockerで各サービスを起動する
+
+    ```sh
+    docker compose up -d
+    ```
+
 ## サービス一覧
 
 | サービス名             | URL                   | 説明                          |
