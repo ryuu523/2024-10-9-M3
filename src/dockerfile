@@ -1,0 +1,18 @@
+FROM node:20.16.0-alpine
+
+# 作業ディレクトリを変更
+WORKDIR /home/workspace
+
+# 必要なパッケージをインストール
+RUN apk add --no-cache tini sudo apache2
+
+# nodeユーザーにパスワードなしでsudoを実行する権限を付与
+RUN echo "node ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/node
+
+# nodeユーザーに変更
+USER node
+
+# PID1問題(コンテナ終了に時間掛かる問題)の回避
+# Apache2を起動を起動
+ENTRYPOINT ["/sbin/tini", "--"]
+CMD ["sudo", "httpd", "-D", "FOREGROUND"]

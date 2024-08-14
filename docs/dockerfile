@@ -1,0 +1,23 @@
+# aglioでAPI仕様書を作るためのイメージ
+FROM node:20.16.0-alpine AS builder
+
+# 作業ディレクトリを変更
+WORKDIR /workspace
+
+# ホストのsrcフォルダをコンテナにworkspaceフォルダとして追加する
+COPY ./src /workspace
+
+# aglioをインストール (※既にこビルド済みの場合は不要)
+# RUN npm i -g aglio
+
+# APIBlueprint(api.md)をindex.htmlにビルド (※既にこビルド済みの場合は不要)
+# RUN aglio -i api.md -o index.html
+
+# ビルド済みのAPI仕様書を公開するためのイメージ
+FROM nginx:alpine
+
+# ビルド済みのHTMLファイルをnginxの公開ディレクトリにコピー
+COPY --from=builder /workspace/index.html /usr/share/nginx/html/
+
+# nginxをデフォルトのコマンドとして実行
+CMD ["nginx", "-g", "daemon off;"]

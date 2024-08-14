@@ -1,0 +1,16 @@
+FROM golang:1.22.5-alpine
+
+# パッケージリストの更新とパッケージのインストール
+RUN apk update && apk add --no-cache tini git
+
+# 作業ディレクトリを変更
+WORKDIR /workspace
+
+# ホストのsrcフォルダをコンテナにworkspaceフォルダとして追加する
+COPY ./src /workspace
+
+# PID1問題(コンテナ終了に時間掛かる問題)の回避
+# APIサーバーを起動
+ENTRYPOINT ["/sbin/tini", "--"]
+CMD ["go", "run", "main.go"]
+CMD ["tail", "-f", "/dev/null"]

@@ -1,0 +1,7 @@
+FROM httpd:2.4.62-alpine
+
+# バーチャルホストの設定ファイルをホスト側からコンテナ側にコピー
+COPY ./vhost.conf /usr/local/apache2/conf/extra/vhost.conf
+
+# バーチャルホストの設定をhttpd.confに追記
+RUN echo "Include conf/extra/vhost.conf" >> /usr/local/apache2/conf/httpd.conf

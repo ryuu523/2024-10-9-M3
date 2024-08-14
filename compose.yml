@@ -1,0 +1,51 @@
+services:
+  src:
+    build:
+      context: ./src
+      dockerfile: dockerfile
+    ports:
+      - 5173:5173 # Vite Default Port
+      - 8080:80
+    tty: true
+    volumes:
+      - ./src/public:/var/www/localhost/htdocs
+      - ./src/workspace:/home/workspace
+    networks:
+      - app
+  www:
+    build:
+      context: ./www
+      dockerfile: dockerfile
+    ports:
+      - 8081:8081 # m1 port
+      - 8082:8082 # m2 port
+    volumes:
+      - ./www/m1:/usr/local/apache2/htdocs/m1
+      - ./www/m2:/usr/local/apache2/htdocs/m2
+    tty: true
+    networks:
+      - app
+  docs:
+    build:
+      context: ./docs
+      dockerfile: dockerfile
+    ports:
+      - 8083:80
+    # volumes:
+    #   - ./docs/src:/workspace # 編集時のみ有効化
+    networks:
+      - app
+  api:
+    build:
+      context: ./api
+      dockerfile: dockerfile
+    ports:
+      - 8084:80
+    # volumes:
+    #   - ./api/src:/workspace # 編集時のみ有効化
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
