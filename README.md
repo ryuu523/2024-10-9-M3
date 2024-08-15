@@ -111,23 +111,13 @@ ViteでReactやVueを使った開発をするためのサービスです。
 
 ### 開発サーバー
 
-1. ターミナルからコマンドで開発サーバーを起動する。
+1. ターミナルからコマンドで開発サーバーを起動する
 
     ```powershell
-    docker compose exec src npm run dev
+    docker compose exec src npm run dev -- --host
     ```
 
-    又は
-
-    ```powershell
-    docker compose exec src sh
-    ```
-
-    ```sh
-    npm run dev
-    ```
-
-2. [http://localhost:5173](http://localhost:5173)にアクセスする。
+2. [http://localhost:5173](http://localhost:5173)にアクセスする
 
 ### 注意事項
 
@@ -142,7 +132,7 @@ HTML・CSS・JavaScriptを使った開発をするためのサービスです。
 ### セットアップ
 
 1. `src/public`にhtmlファイルなどを設置する
-2. 必要に応じて`src/lib`からbootstrap又はfontawesomeのzipを展開する。
+2. 必要に応じて`src/lib`からbootstrap又はfontawesomeのzipを展開する
 
 ### 表示確認
 
@@ -150,8 +140,8 @@ HTML・CSS・JavaScriptを使った開発をするためのサービスです。
 
 ### 注意事項
 
-- React/Vueを使う場合は`src/workspace`内で作業してください。
-- React/Vueを使わない場合は`src/public`内で作業してください。
+- React/Vueを使う場合は`src/workspace`内で作業してください
+- React/Vueを使わない場合は`src/public`内で作業してください
 
 ## M1Server
 
