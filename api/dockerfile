@@ -13,4 +13,3 @@ COPY ./src /workspace
 # APIサーバーを起動
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["go", "run", "main.go"]
-CMD ["tail", "-f", "/dev/null"]
