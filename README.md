@@ -53,11 +53,61 @@ ViteでReactやVueを使った開発をするためのサービスです。
 
 ### セットアップ
 
-1. `src/lib`のReact又はVueのzipを`src/workspace`で展開する。
-2. 展開後のフォルダ内ある全てのファイルやフォルダを`src/workspace`直下に移動させる。
-    - Reactの場合は展開後のフォルダは2024jakunen-react
-    - Vueの場合は展開後のフォルダは2024jakunen-vue
-3. 展開後のフォルダを削除する。
+1. `src/lib`のReact又はVueのzipを`src/workspace`にコピーする
+
+    (※下記はReactの場合で、Vueの場合は2024jakunen-reactを2024jakunen-vueを置き換えて実行してください)
+
+    ```sh
+    cp ./src/lib/2024jakunen-react.zip ./src/workspace/2024jakunen-react.zip
+    ```
+
+2. srcコンテナに入る
+
+    ```sh
+    docker compose exec src sh
+    ```
+
+3. zipファイルを展開する
+
+    ```sh
+    unzip 2024jakunen-react.zip
+    ```
+
+4. zipを削除する
+
+    ```sh
+    rm 2024jakunen-react.zip
+    ```
+
+5. 展開後のフォルダ内の全てのファイルとフォルダをworkspace直下に移動させる
+
+    ```sh
+    mv -f 2024jakunen-react/.[!.]* 2024jakunen-react/* .
+    ```
+
+6. 展開後のフォルダを削除する
+
+    ```sh
+    rm -r 2024jakunen-react
+    ```
+
+7. viteコマンドに実行権限を付与する
+
+    ```
+    chmod +x node_modules/.bin/vite
+    ```
+
+8. 依存関係のインストール
+
+    ```sh
+    npm i
+    ```
+
+9. コンテナから出る
+
+    ```sh
+    exit
+    ```
 
 ### 開発サーバー
 
