@@ -21,13 +21,13 @@
 1. リポジトリをクローンする
 
     ```sh
-    git clone https://github.com/saitogo555/jyakunen2024-webdesign-dev
+    git clone https://github.com/saitogo555/jakunen2024-webdesign-dev
     ```
 
 2. ディレクトリを移動する
 
     ```sh
-    cd ./jyakunen2024-webdesign-dev
+    cd ./jakunen2024-webdesign-dev
     ```
 
 3. dockerで各サービスを起動する
