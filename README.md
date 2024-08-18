@@ -1,10 +1,10 @@
 # 若年者ものづくり競技大会2024 ウェブデザイン 練習問題
 
-第19回(2024年)若年者ものづくり競技大会のウェブデザイン職種の当日課題に似せて作成した練習問題になります。
+第19回(2024年)若年者ものづくり競技大会のウェブデザイン職種の当日課題に似せて作成した練習問題です。
 
 ## 課題に関すること
 
-- 各モジュールの課題資料`src/docs`にあります
+- 各モジュールの課題資料は`src/docs`にあります
 - 各モジュールの画像素材は`src/assets`にあります
 - モジュール1のテンプレートは`src/template`にあります
 
@@ -14,54 +14,54 @@
 - Hyper-V (Windowsのみ)
 - WSL2 (Windowsのみ)
 
-※Hyper-VとWSL2はどちらか一方がセットアップされている必要があります。
+※Hyper-VまたはWSL2はどちらか一方がセットアップされている必要があります。
 
 ## セットアップ
 
 1. リポジトリをクローンする
 
-    ```sh
+    ```bash
     git clone https://github.com/saitogo555/jakunen2024-webdesign-dev
     ```
 
 2. ディレクトリを移動する
 
-    ```sh
+    ```bash
     cd ./jakunen2024-webdesign-dev
     ```
 
-3. dockerで各サービスを起動する
+3. Dockerで各サービスを起動する
 
-    ```sh
+    ```bash
     docker compose up -d
     ```
 
 ## サービス一覧
 
-| サービス名             | URL                   | 説明                          |
-|-----------------------|-----------------------|-------------------------------|
-| [ViteDev](#vitedev)   | http://localhost:5173 | ViteのReactやVueの開発サーバー |
-| [WebDev](#webdev)     | http://localhost:8080 | 作業用のWebサーバー            |
-| [M1Server](#m1server) | http://localhost:8081 | モジュール1提出用のWebサーバー |
-| [M2Server](#m2server) | http://localhost:8082 | モジュール2提出用のWebサーバー |
-| [APIDocs](#apidocs)   | http://localhost:8083 | API仕様書サイト               |
-| [APIHost](#apihost)   | http://localhost:8084 | APIホスト                    |
+| サービス名             | URL                   | 説明                                 |
+|-----------------------|-----------------------|--------------------------------------|
+| [ViteDev](#vitedev)   | http://localhost:5173 | Viteを用いたReactやVueの開発サーバー   |
+| [WebDev](#webdev)     | http://localhost:8080 | 静的ファイルの作業用のWebサーバー      |
+| [M1Server](#m1server) | http://localhost:8081 | モジュール1提出用のWebサーバー        |
+| [M2Server](#m2server) | http://localhost:8082 | モジュール2提出用のWebサーバー        |
+| [APIDocs](#apidocs)   | http://localhost:8083 | API仕様書サイト                      |
+| [APIHost](#apihost)   | http://localhost:8084 | APIホスト                            |
 
 ## ViteDev
 
-ViteでReactやVueを使った開発をするためのサービスです。
+Viteを用いたReactまたはVueでの開発を行うためのサービスです。
 
 ### セットアップ
 
-1. `src/lib`のReact又はVueのzipを`src/workspace`にコピーする
+1. `src/lib`のReactまたはVueのzipを`src/workspace`にコピーする
 
-    (※下記はReactの場合で、Vueの場合は2024jakunen-reactを2024jakunen-vueを置き換えて実行してください)
+    (※下記はReactの場合で、Vueの場合は`2024jakunen-react`を`2024jakunen-vue`を置き換えて実行してください)
 
-    ```sh
+    ```bash
     cp ./src/lib/2024jakunen-react.zip ./src/workspace/2024jakunen-react.zip
     ```
 
-2. srcコンテナに入る
+2. srcコンテナに接続する
 
     ```sh
     docker compose exec src sh
@@ -93,7 +93,7 @@ ViteでReactやVueを使った開発をするためのサービスです。
 
 7. viteコマンドに実行権限を付与する
 
-    ```
+    ```sh
     chmod +x node_modules/.bin/vite
     ```
 
@@ -103,7 +103,7 @@ ViteでReactやVueを使った開発をするためのサービスです。
     npm i
     ```
 
-9. コンテナから出る
+9. コンテナから切断する
 
     ```sh
     exit
@@ -121,8 +121,8 @@ ViteでReactやVueを使った開発をするためのサービスです。
 
 ### 注意事項
 
-- React/Vueを使う場合は`src/workspace`内で作業してください
-- React/Vueを使わない場合は`src/public`内で作業してください
+- React/Vueを使用する場合は`src/workspace`内で作業してください
+- React/Vueを使用しない場合は`src/public`内で作業してください
 - 開発サーバーのポートはデフォルトの5173を使用してください
 
 ## WebDev
@@ -132,16 +132,16 @@ HTML・CSS・JavaScriptを使った開発をするためのサービスです。
 ### セットアップ
 
 1. `src/public`にhtmlファイルなどを設置する
-2. 必要に応じて`src/lib`からbootstrap又はfontawesomeのzipを展開する
+2. 必要に応じて`src/lib`からBootstrapまたはFontAwesomeのzipを展開する
 
 ### 表示確認
 
-[http://localhost:8080](http://localhost:8080)にアクセスすることで確認出来ます。
+[http://localhost:8080](http://localhost:8080)にアクセスすることで確認できます。
 
 ### 注意事項
 
-- React/Vueを使う場合は`src/workspace`内で作業してください
-- React/Vueを使わない場合は`src/public`内で作業してください
+- React/Vueを使用する場合は`src/workspace`内で作業してください
+- React/Vueを使用しない場合は`src/public`内で作業してください
 
 ## M1Server
 
@@ -157,7 +157,7 @@ HTML・CSS・JavaScriptを使った開発をするためのサービスです。
     docker compose exec src npm run build
     ```
 
-    又は
+    または
 
     ```powershell
     docker compose exec src sh
@@ -174,7 +174,7 @@ HTML・CSS・JavaScriptを使った開発をするためのサービスです。
 
 ### 表示確認
 
-[http://localhost:8081](http://localhost:8081)にアクセスすることで確認出来ます。
+[http://localhost:8081](http://localhost:8081)にアクセスすることで確認できます。
 
 ## M2Server
 
@@ -190,7 +190,7 @@ HTML・CSS・JavaScriptを使った開発をするためのサービスです。
     docker compose exec src npm run build
     ```
 
-    又は
+    または
 
     ```powershell
     docker compose exec src sh
@@ -207,19 +207,19 @@ HTML・CSS・JavaScriptを使った開発をするためのサービスです。
 
 ### 表示確認
 
-[http://localhost:8082](http://localhost:8082)にアクセスすることで確認出来ます。
+[http://localhost:8082](http://localhost:8082)にアクセスすることで確認できます。
 
 ## APIDocs
 
-モジュール1のAPIの仕様書を閲覧出来るサービスです。
+モジュール1のAPI仕様書を閲覧できるサービスです。
 
-[http://localhost:8083](http://localhost:8083)にアクセスすることでAPIの仕様書を確認出来ます。
+[http://localhost:8083](http://localhost:8083)にアクセスすることでAPI仕様書を確認できます。
 
 ## APIHost
 
 モジュール1のAPIを提供するサービスです。
 
-APIのホストは`http://localhost:8084`になります。
+APIのホストは`http://localhost:8084`にです。
 
 
 ## 関連リンク
