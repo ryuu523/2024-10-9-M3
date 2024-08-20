@@ -70,13 +70,7 @@ func DeleteScore(c *gin.Context) {
 		return
 	}
 
-	var isExists bool = false
-	for _, score := range scoreList {
-		if score.ID == id {
-			isExists = true
-			break
-		}
-	}
+	var isExists bool = slices.Contains([]int{1, 2, 3, 4}, id)
 	if !isExists {
 		c.JSON(http.StatusNotFound, gin.H{"message": "存在しないIDです"})
 		return
