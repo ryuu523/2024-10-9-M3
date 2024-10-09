@@ -51,7 +51,7 @@ function GameOver() {
                 <h1>GAME OVER</h1>
                 <h2>今回のスコア</h2>
                 <Score score={score} />
-                <button>ニックネーム求む</button>
+                
                 {!postedScore ? <button onClick={() => uploadScore()}>スコア投稿</button> : (<><button onClick={() => updateNick(id)}>ニックネーム更新</button><button onClick={() => deleteData(id)}>投稿スコア削除</button></>)}
                 <h2>ランキング</h2>
                 {
