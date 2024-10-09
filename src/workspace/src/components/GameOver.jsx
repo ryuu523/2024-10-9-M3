@@ -9,7 +9,7 @@ function GameOver() {
     const score = localStorage.getItem("score");
     const [runking, setRunking] = useState([])
     const [postedScore, setPostedScore] = useState(false)
-    const [id, setId] = useState()
+    const [id, setId] = useState(null)
     getScores().then(scores => {
         setRunking(scores)
 
