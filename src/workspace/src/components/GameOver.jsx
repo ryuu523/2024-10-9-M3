@@ -64,18 +64,21 @@ function GameOver() {
                 <h2>今回のスコア</h2>
                 <Score score={score} />
                 
-                {!postedScore ? <button onClick={() => uploadScore()}>スコア投稿</button> : (<><button onClick={() => updateNick(id)}>ニックネーム更新</button><button onClick={() => deleteData(id)}>投稿スコア削除</button></>)}
+                {!postedScore ? (
+                    <button onClick={uploadScore}>スコア投稿</button>
+                ) : (
+                    <>
+                        <button onClick={() => updateNick(id)}>ニックネーム更新</button>
+                        <button onClick={() => deleteData(id)}>投稿スコア削除</button>
+                    </>
+                )}
                 <h2>ランキング</h2>
-                {
-                    runking.map((runk, index) => {
-                        return (
-                            <div className="flex">
-                                <h3>{runk.nickname}</h3>
-                                <Score score={runk.score} />
-                            </div>
-                        )
-                    })
-                }
+                {runking.map((runk, index) => (
+                    <div className="ranking-flex" key={index}>
+                        <h3>{runk.nickname}</h3>
+                        <Score score={runk.score} />
+                    </div>
+                ))}
                 <button onClick={() => navigate("/app/game")}>リプレイ</button>
                 <button onClick={() => {
                     sessionStorage.removeItem("token")
