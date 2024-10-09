@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "../assets/styles/gameOver.css"
 import Score from "./Score";
 import { DeleteScore, getScores, login, postScore, updateNickname } from "../api/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function GameOver() {
 
     const navigate = useNavigate();
@@ -10,10 +10,22 @@ function GameOver() {
     const [runking, setRunking] = useState([])
     const [postedScore, setPostedScore] = useState(false)
     const [id, setId] = useState(null)
-    getScores().then(scores => {
-        setRunking(scores)
 
-    })
+
+    /**
+     * スコアの取得
+     */
+    useEffect(() => {
+        const fetchScores = async () => {
+            try {
+                const scores = await getScores();
+                setRunking(scores);
+            } catch (error) {
+                console.error("スコアの取得に失敗しました:", error);
+            }
+        };
+        fetchScores();
+    }, []);
 
     const uploadScore = async () => {
         const nickname = window.prompt("ニックネームを入力")
