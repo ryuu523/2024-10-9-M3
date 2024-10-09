@@ -8,15 +8,17 @@ function Routers() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Login></Login>} />
-                <Route path="/" element={<Wrapper></Wrapper>}>
-                    <Route path="Game" element={<Game></Game>} />
-                    <Route path="GameOver" element={<GameOver></GameOver>} />
+                <Route path="/" element={<Login />} />
+
+                <Route path="/app" element={<Wrapper />}>
+                    <Route path="game" element={<Game />} />
+                    <Route path="gameover" element={<GameOver />} />
                 </Route>
-                <Route path="/*" element={<Game></Game>} />
+
+                <Route path="/*" element={<Game />} />
             </Routes>
         </Router>
-    )
+    );
 }
 
-export default Routers
+export default Routers;

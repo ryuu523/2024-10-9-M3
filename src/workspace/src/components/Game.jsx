@@ -95,7 +95,7 @@ function Game() {
     useEffect(() => {
         if (gameOver) {
             localStorage.setItem('score', score);
-            navigate('/GameOver');
+            navigate('/app/gameover');
         }
     }, [gameOver])
     useEffect(() => {

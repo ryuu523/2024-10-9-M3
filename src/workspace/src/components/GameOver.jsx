@@ -64,7 +64,7 @@ function GameOver() {
                         )
                     })
                 }
-                <button onClick={() => navigate("/Game")}>リプレイ</button>
+                <button onClick={() => navigate("/app/game")}>リプレイ</button>
                 <button onClick={() => {
                     sessionStorage.removeItem("token")
                     navigate("/")
