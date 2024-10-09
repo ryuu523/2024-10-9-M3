@@ -1,0 +1,15 @@
+.center{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.back{
+    width: calc(64px * 5);
+    height: 1080px;
+    background-color: blue;
+}
+.flex{
+    display: flex;
+}
