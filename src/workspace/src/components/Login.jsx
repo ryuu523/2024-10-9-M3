@@ -8,7 +8,7 @@ function Login() {
     const handleLogin = () => {
         const token = login()
         sessionStorage.setItem("token", token)
-        navigate("/Game")
+        navigate("/app/game")
     }
     return (
         <>
